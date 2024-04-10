@@ -189,4 +189,6 @@ function brightcol(){
 //console.log(`${color2} , ${color1} , ${color3}`)//
 }
 
+// just a test with github
+
 question()
