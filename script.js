@@ -4,6 +4,7 @@ let x = NaN
 let color1
 let color2
 let color3
+let color4 = 1
 const refuse = document.querySelector('.refuse')
 const topbutton = document.querySelector('.buttons')
 
@@ -65,59 +66,97 @@ function grid(linenumb , columnumb){
         line.setAttribute('id' , 'line')
         line.classList.add('griddel')
         container.appendChild(line)
+
         for(let i = 0; i < columnumb; i++){
             const square = document.createElement('div')
             square.classList.add('square')
             line.appendChild(square)
             squaregrid()
             
-            
-
-            
             function squaregrid(){
                 if(!(btnrgb.classList.contains('rgbon'))){
-                    square.addEventListener('mouseover', () => {
-                        purplecol()
-                        square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}) ; border:solid 1px rgb(200, 5, 200)`
-                        refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-                        topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-                    })
+                    if(btndark.classList.contains('darkon')){
+                            square.addEventListener('mouseover', () => {
+                                purplecol()
+                                square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}); border:solid 1px rgb(50, 5, 50)`
+                                refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                                topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                                
+                                let squarebright = square.dataset.brightness || 100
+                                if(squarebright > 0){
+                                    squarebright = parseInt(squarebright) - 10
+                                }
+                                if (squarebright >= 0) {
+                                    square.style.filter = `brightness(${squarebright}%)`;
+                                    square.dataset.brightness = squarebright;
+                                }
+
+                                let refusebright = square.dataset.brightness || 100
+                                refuse.style.filter = `brightness(${refusebright}%)`;
+                            
+                                let topbuttonbright = square.dataset.brightness || 100
+                                topbutton.style.filter = `brightness(${topbuttonbright}%)`;
+                            })
+                    }else{
+                        square.addEventListener('mouseover', () => {
+                            purplecol()
+                            square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}) ; border:solid 1px rgb(200, 100, 200)`
+                            refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                            topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                        })
+                    }
+                    
                 }else if((btnrgb.classList.contains('rgbon'))){
-                
-                square.addEventListener('mouseover', () => {
-                    brightcol()
-                    square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}) ; border:solid 1px rgb(200, 5, 200)`
-                    refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-                    topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-                })
+                    if(btndark.classList.contains('darkon')){
+                        square.addEventListener('mouseover', () => {
+                            brightcol()
+                            square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}); border:solid 1px rgb(50, 5, 50)`
+                            refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                            topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                            
+                            let squarebright = square.dataset.brightness || 100
+                            if(squarebright > 0){
+                                squarebright = parseInt(squarebright) - 10
+                            }
+                            if (squarebright >= 0) {
+                                square.style.filter = `brightness(${squarebright}%)`;
+                                square.dataset.brightness = squarebright;
+                            }
+
+                            let refusebright = square.dataset.brightness || 100
+                            refuse.style.filter = `brightness(${refusebright}%)`;
+                            
+                            let topbuttonbright = square.dataset.brightness || 100
+                            topbutton.style.filter = `brightness(${topbuttonbright}%)`;
+                        })
+                    }else{
+                        square.addEventListener('mouseover', () => {
+                            brightcol()
+                            square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}) ; border:solid 1px rgb(200, 100, 200)`
+                            refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                            topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
+                        })
+                    }
+                }
             }
-            }
-            //Reset to default
+            //Reset to default//
             if(btnreset.classList.contains('reseton')){
                 square.addEventListener('mouseout', () => {
                     square.style.cssText = ''
                 })
             }
-
-            if(btndark.classList.contains('darkon') && !(btnrgb.classList.contains('rgbon'))){
-                purplecol()
-                square.style.cssText = `background-color: rgb(${color1} , ${color2} , ${color3}) , ; border:solid 1px rgb(200, 5, 200)`
-                refuse.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-                topbutton.style.cssText = `-webkit-text-fill-color: rgb(${color1} , ${color2} , ${color3}) ; -webkit-text-stroke-width: 1px ; -webkit-text-stroke-color: rgb(${color1} , ${color2} , ${color3})`
-
-            }
         }
     }
 }
 
-//function only purples
+//function only purples//
 function purplecol(){
     color1 = Math.floor(Math.random() * 100 + 120)
     color2 = 5
     color3 = Math.floor(Math.random() * 255)
 }
 
-//function of only bright collors
+//function of only bright collors//
 function brightcol(){
     if(Math.floor(Math.random() * 10) < 4){
         color1 = 255
@@ -147,10 +186,7 @@ function brightcol(){
             color2 = 0
         }
     }
-//console.log(`${color2} , ${color1} , ${color3}`)
+//console.log(`${color2} , ${color1} , ${color3}`)//
 }
 
 question()
-
-
-

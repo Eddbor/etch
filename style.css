@@ -27,6 +27,7 @@ button{
     width: 900px;
     height: 900px;
     justify-content: center;
+    border: solid 3px rgb(50, 5, 50);
 }
 
 #line{
@@ -42,6 +43,7 @@ button{
     display: flex;
     flex: 1 0 auto;
     aspect-ratio: 1/1;
+    opacity: 1;
 }
 
 .refuse{
